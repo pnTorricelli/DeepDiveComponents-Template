@@ -1,12 +1,17 @@
-import { Component } from '@angular/core';
+import { Component, signal } from '@angular/core';
+import { Header } from './header/header';
+import { ServerStatus } from './dashboard/server-status/server-status';
+import { Traffic } from './dashboard/traffic/traffic';
+import { Tickets } from './dashboard/tickets/tickets';
+import { DashboardItem } from './dashboard/dashboard-item/dashboard-item';
 
 @Component({
   selector: 'app-root',
-  standalone: true,
+  imports: [Header, ServerStatus, Traffic, Tickets, DashboardItem],
   templateUrl: './app.html',
 })
 export class App {
-  dummyTrafficData = [
+  dummyTrafficData = signal<{ id: string, value: number }[]>([
     {
       id: 'd1',
       value: 433,
@@ -35,7 +40,7 @@ export class App {
       id: 'd47',
       value: 589,
     },
-  ];
-  maxTraffic = Math.max(...this.dummyTrafficData.map((data) => data.value));
-  currentStatus = 'online';
+  ]);
+
+
 }
