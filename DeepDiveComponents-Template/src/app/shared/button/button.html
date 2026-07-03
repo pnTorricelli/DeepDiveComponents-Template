@@ -1,6 +1,8 @@
 <span>
-  {{button().title}}
+  <ng-content />
 </span>
 <span class="icon">
-  {{button().icon}}
+  <ng-content select="icon">
+    →
+  </ng-content>
 </span>

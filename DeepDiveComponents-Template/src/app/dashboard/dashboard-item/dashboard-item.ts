@@ -5,6 +5,7 @@ import { Component, input } from '@angular/core';
   imports: [],
   templateUrl: './dashboard-item.html',
   styleUrl: './dashboard-item.css',
+
 })
 export class DashboardItem {
   image = input.required<{ src: string, alt: string }>();
