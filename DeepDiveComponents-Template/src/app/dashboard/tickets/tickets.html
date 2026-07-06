@@ -1,3 +1,15 @@
+<div>
+  <ul>
+    @for(tik of tickets(); track tik.id){
+    <li>
+      <app-ticket [data]="tik" (closedTicket)="onCloseTicket(tik.id)"></app-ticket>
+    </li>
+    }@empty {
+    <p>Nessun ticket disponibili</p>
+    }
+  </ul>
+</div>
+
 <div id="new-ticket">
   <app-new-ticket (add)="onAdd($event)" />
 </div>
